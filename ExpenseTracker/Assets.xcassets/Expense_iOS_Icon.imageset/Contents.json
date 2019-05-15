@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Expense_iOS_Icon_25x25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Expense_NavigationBar_iOS_Icon_50x50.png",
+      "filename" : "Expense_iOS_Icon_50x50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Expense_NavigationBar_iOS_Icon_75x75.png",
+      "filename" : "Expense_iOS_Icon_75x75.png",
       "scale" : "3x"
     }
   ],

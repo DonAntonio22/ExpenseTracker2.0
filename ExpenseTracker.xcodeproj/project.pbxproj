@@ -16,6 +16,13 @@
 		9717326F22648B16006EF23D /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717326E22648B16006EF23D /* PersistenceService.swift */; };
 		9717327222649039006EF23D /* IncomeExpense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717327022649039006EF23D /* IncomeExpense+CoreDataClass.swift */; };
 		9717327322649039006EF23D /* IncomeExpense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717327122649039006EF23D /* IncomeExpense+CoreDataProperties.swift */; };
+		97E0EA132265D1BD00756F0C /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA0C2265D1BC00756F0C /* BEMAnimationManager.m */; };
+		97E0EA142265D1BD00756F0C /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA0D2265D1BC00756F0C /* BEMPathManager.m */; };
+		97E0EA152265D1BD00756F0C /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA0E2265D1BC00756F0C /* BEMCheckBoxGroup.m */; };
+		97E0EA162265D1BD00756F0C /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA102265D1BC00756F0C /* BEMCheckBox.m */; };
+		97E0EA1B2265E4FF00756F0C /* IncExpPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA1A2265E4FF00756F0C /* IncExpPopUpViewController.swift */; };
+		97E0EA1E2265EF7E00756F0C /* IncomeExpensePopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E0EA1C2265EF7E00756F0C /* IncomeExpensePopUp.storyboard */; };
+		97E0EA232265F2DB00756F0C /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA222265F2DB00756F0C /* NotificationNameExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,18 @@
 		9717326E22648B16006EF23D /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		9717327022649039006EF23D /* IncomeExpense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeExpense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9717327122649039006EF23D /* IncomeExpense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeExpense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		97E0EA0B2265D1BC00756F0C /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		97E0EA0C2265D1BC00756F0C /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
+		97E0EA0D2265D1BC00756F0C /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
+		97E0EA0E2265D1BC00756F0C /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBoxGroup.m; sourceTree = "<group>"; };
+		97E0EA0F2265D1BC00756F0C /* BEMAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimationManager.h; sourceTree = "<group>"; };
+		97E0EA102265D1BC00756F0C /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
+		97E0EA112265D1BC00756F0C /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
+		97E0EA122265D1BC00756F0C /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
+		97E0EA172265D1FB00756F0C /* CheckMarkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMarkHeader.h; sourceTree = "<group>"; };
+		97E0EA1A2265E4FF00756F0C /* IncExpPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncExpPopUpViewController.swift; sourceTree = "<group>"; };
+		97E0EA1D2265EF7E00756F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ExpenseTracker/Base.lproj/IncomeExpensePopUp.storyboard; sourceTree = "<group>"; };
+		97E0EA222265F2DB00756F0C /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +65,7 @@
 		9717324D226485D7006EF23D = {
 			isa = PBXGroup;
 			children = (
+				97E0EA172265D1FB00756F0C /* CheckMarkHeader.h */,
 				97173258226485D7006EF23D /* ExpenseTracker */,
 				97173257226485D7006EF23D /* Products */,
 			);
@@ -62,18 +82,61 @@
 		97173258226485D7006EF23D /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
-				9717327022649039006EF23D /* IncomeExpense+CoreDataClass.swift */,
-				9717327122649039006EF23D /* IncomeExpense+CoreDataProperties.swift */,
+				97E0EA212265EFD200756F0C /* ViewController */,
+				97E0EA202265EFBA00756F0C /* CoreDataStuff */,
+				97E0EA1F2265EFA400756F0C /* Storyboards */,
+				97E0EA0A2265D1BC00756F0C /* Classes */,
 				97173259226485D7006EF23D /* AppDelegate.swift */,
-				9717325B226485D7006EF23D /* ViewController.swift */,
 				9717326E22648B16006EF23D /* PersistenceService.swift */,
-				9717325D226485D7006EF23D /* Main.storyboard */,
 				97173263226485D8006EF23D /* Assets.xcassets */,
-				97173265226485D8006EF23D /* LaunchScreen.storyboard */,
 				97173268226485D8006EF23D /* Info.plist */,
-				97173260226485D7006EF23D /* ExpenseTracker.xcdatamodeld */,
+				97E0EA222265F2DB00756F0C /* NotificationNameExtension.swift */,
 			);
 			path = ExpenseTracker;
+			sourceTree = "<group>";
+		};
+		97E0EA0A2265D1BC00756F0C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				97E0EA0B2265D1BC00756F0C /* BEMCheckBox.h */,
+				97E0EA0C2265D1BC00756F0C /* BEMAnimationManager.m */,
+				97E0EA0D2265D1BC00756F0C /* BEMPathManager.m */,
+				97E0EA0E2265D1BC00756F0C /* BEMCheckBoxGroup.m */,
+				97E0EA0F2265D1BC00756F0C /* BEMAnimationManager.h */,
+				97E0EA102265D1BC00756F0C /* BEMCheckBox.m */,
+				97E0EA112265D1BC00756F0C /* BEMPathManager.h */,
+				97E0EA122265D1BC00756F0C /* BEMCheckBoxGroup.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		97E0EA1F2265EFA400756F0C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				97E0EA1C2265EF7E00756F0C /* IncomeExpensePopUp.storyboard */,
+				9717325D226485D7006EF23D /* Main.storyboard */,
+				97173265226485D8006EF23D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		97E0EA202265EFBA00756F0C /* CoreDataStuff */ = {
+			isa = PBXGroup;
+			children = (
+				9717327022649039006EF23D /* IncomeExpense+CoreDataClass.swift */,
+				9717327122649039006EF23D /* IncomeExpense+CoreDataProperties.swift */,
+				97173260226485D7006EF23D /* ExpenseTracker.xcdatamodeld */,
+			);
+			path = CoreDataStuff;
+			sourceTree = "<group>";
+		};
+		97E0EA212265EFD200756F0C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9717325B226485D7006EF23D /* ViewController.swift */,
+				97E0EA1A2265E4FF00756F0C /* IncExpPopUpViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +200,7 @@
 				97173267226485D8006EF23D /* LaunchScreen.storyboard in Resources */,
 				97173264226485D8006EF23D /* Assets.xcassets in Resources */,
 				9717325F226485D7006EF23D /* Main.storyboard in Resources */,
+				97E0EA1E2265EF7E00756F0C /* IncomeExpensePopUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +214,15 @@
 				9717325C226485D7006EF23D /* ViewController.swift in Sources */,
 				9717327322649039006EF23D /* IncomeExpense+CoreDataProperties.swift in Sources */,
 				9717326F22648B16006EF23D /* PersistenceService.swift in Sources */,
+				97E0EA232265F2DB00756F0C /* NotificationNameExtension.swift in Sources */,
+				97E0EA1B2265E4FF00756F0C /* IncExpPopUpViewController.swift in Sources */,
+				97E0EA132265D1BD00756F0C /* BEMAnimationManager.m in Sources */,
 				97173262226485D7006EF23D /* ExpenseTracker.xcdatamodeld in Sources */,
 				9717327222649039006EF23D /* IncomeExpense+CoreDataClass.swift in Sources */,
+				97E0EA152265D1BD00756F0C /* BEMCheckBoxGroup.m in Sources */,
 				9717325A226485D7006EF23D /* AppDelegate.swift in Sources */,
+				97E0EA142265D1BD00756F0C /* BEMPathManager.m in Sources */,
+				97E0EA162265D1BD00756F0C /* BEMCheckBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +243,14 @@
 				97173266226485D8006EF23D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		97E0EA1C2265EF7E00756F0C /* IncomeExpensePopUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97E0EA1D2265EF7E00756F0C /* Base */,
+			);
+			name = IncomeExpensePopUp.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -307,6 +385,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AntonioLastro.ExpenseTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CheckMarkHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -325,6 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AntonioLastro.ExpenseTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CheckMarkHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
