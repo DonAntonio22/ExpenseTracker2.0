@@ -9,16 +9,18 @@
 import UIKit
 import CoreData
 
+
+
 class NewEntryTableViewCell: UITableViewCell{
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cellBackgroundView: UIView!
 }
 
-class ViewController: UIViewController, UITableViewDelegate {
+class OverviewViewController: UIViewController, UITableViewDelegate {
 
     var newEntry = [IncomeExpense]()
-    
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -28,43 +30,42 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        
+        
         
         let fetchRequest: NSFetchRequest<IncomeExpense> = IncomeExpense.fetchRequest()
         do {
+            
             let entries = try PersistenceService.context.fetch(fetchRequest)
             self.newEntry = entries
             self.reloadAll()
-            
-        } catch {}
-        super.viewDidLoad()
-        NotificationCenter.default.addObserver(forName: .newIncomeExpense, object: nil, queue: OperationQueue.main) { (notification) in
+            NotificationCenter.default.addObserver(forName: .newIncomeExpense, object: nil, queue: OperationQueue.main) { (notification) in
             let IncExpViewController = notification.object as! IncExpPopUpViewController
             let name: String = IncExpViewController.nameTextField.text!
-            let price = IncExpViewController.priceTextField.text!
-            let entry = IncomeExpense(context: PersistenceService.context)
-            entry.name = name
-            entry.price = Float(price)!
-            if IncExpViewController.incomeCheckBox.on == true || IncExpViewController.expenseCheckBox.on == true{
-                
-                PersistenceService.saveContext()
-                self.newEntry.append(entry)
-                self.reloadAll()
+                let price = IncExpViewController.priceTextField.text!
+                let entry = IncomeExpense(context: PersistenceService.context)
+                entry.name = name
+                entry.price = Float(price)!
+                if IncExpViewController.incomeCheckBox.on == true || IncExpViewController.expenseCheckBox.on == true {
+                    if IncExpViewController.expenseCheckBox.on == true {
+                        entry.price = Float(price)! * -1
+                    }
+                    PersistenceService.saveContext()
+                    self.newEntry.append(entry)
+                    self.reloadAll()
+                }
             }
-            
-            if IncExpViewController.expenseCheckBox.on == true {
-                entry.price = Float(price)! * -1
-                
-            }
-            
-        }
-        
-        
-        
+        } catch {}
     }
+
 }
 
 
-extension ViewController: UITableViewDataSource {
+
+extension OverviewViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -80,16 +81,6 @@ extension ViewController: UITableViewDataSource {
         let newEntries = self.newEntry[indexPath.row]
         cell.nameLabel!.text = newEntries.name
         cell.priceLabel!.text = ("€ \(String(format: "%.2f", newEntries.price))")
-        if (cell.nameLabel!.text == nil || cell.nameLabel!.text == "\0" || cell.nameLabel!.text == "0"){
-            let alert = UIAlertController(title: "CellNameLabel = nil", message: "CellNameLabel = nil", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
-        if (cell.priceLabel!.text == nil || cell.priceLabel!.text == "\0" || cell.priceLabel!.text == "0"){
-            let alert = UIAlertController(title: "CellPriceLabel = nil", message: "CellPriceLabel = nil", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
         if newEntries.price < 0.0 {
             cell.nameLabel.textColor = UIColor.red
             cell.priceLabel.textColor = UIColor.red
@@ -125,13 +116,17 @@ extension ViewController: UITableViewDataSource {
             totalAmountLabel.text = "Error because of nil"
         }
         totalAmountLabel?.text = "Current Balance €\(totalAmount)"
-        
-        
         tableView?.reloadData()
         
-        //tableView?.beginUpdates()
         
-        //tableView?.endUpdates()
-        
+    }
+}
+
+
+extension OverviewViewController: Themed {
+    func applyTheme(_ theme: AppTheme) {
+        /*view.backgroundColor = theme.backgroundColor
+        .textColor = theme.textColor
+        subtitleLabel.textColor = theme.textColor*/
     }
 }

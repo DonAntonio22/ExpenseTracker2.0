@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IncExpPopUpViewController: ViewController, BEMCheckBoxDelegate {
+class IncExpPopUpViewController: OverviewViewController, BEMCheckBoxDelegate {
     var entryName = ""
     var entryPrice = ""
     @IBOutlet weak var incomeCheckBox: BEMCheckBox!
@@ -76,6 +76,10 @@ class IncExpPopUpViewController: ViewController, BEMCheckBoxDelegate {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
+        let incomeVC: IncomeViewController = IncomeViewController(nibName: nil, bundle: nil)
+        let expenseVC: ExpenseViewController = ExpenseViewController (nibName: nil, bundle: nil)
+        let overviewVC: OverviewViewController = OverviewViewController(nibName: nil, bundle: nil)
+        
         NotificationCenter.default.post(name: .newIncomeExpense, object: self)
         
         dismiss(animated: true)
