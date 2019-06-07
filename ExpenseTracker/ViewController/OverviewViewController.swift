@@ -19,9 +19,10 @@ class NewEntryTableViewCell: UITableViewCell{
 
 class OverviewViewController: UIViewController, UITableViewDelegate {
 
-    var newEntry = [IncomeExpense]()
+    var myData = [IncomeExpense]()
     private let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var plusButton: UIBarButtonItem!
     
     
     
@@ -31,36 +32,57 @@ class OverviewViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
-        
+        tableView.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
         let fetchRequest: NSFetchRequest<IncomeExpense> = IncomeExpense.fetchRequest()
         do {
-            
             let entries = try PersistenceService.context.fetch(fetchRequest)
-            self.newEntry = entries
+            self.myData = entries
             self.reloadAll()
             NotificationCenter.default.addObserver(forName: .newIncomeExpense, object: nil, queue: OperationQueue.main) { (notification) in
-            let IncExpViewController = notification.object as! IncExpPopUpViewController
-            let name: String = IncExpViewController.nameTextField.text!
+                let IncExpViewController = notification.object as! IncExpPopUpViewController
+                let name: String = IncExpViewController.nameTextField.text!
                 let price = IncExpViewController.priceTextField.text!
                 let entry = IncomeExpense(context: PersistenceService.context)
                 entry.name = name
                 entry.price = Float(price)!
-                if IncExpViewController.incomeCheckBox.on == true || IncExpViewController.expenseCheckBox.on == true {
-                    if IncExpViewController.expenseCheckBox.on == true {
+                if IncExpViewController.expenseCheckBox.on == true || IncExpViewController.incomeCheckBox.on == true {
+                    if IncExpViewController.expenseCheckBox.on == true{
                         entry.price = Float(price)! * -1
                     }
                     PersistenceService.saveContext()
-                    self.newEntry.append(entry)
+                    self.myData.append(entry)
                     self.reloadAll()
                 }
             }
         } catch {}
     }
 
+    
+    
+    
+    @IBAction func plusButtonpressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Entry", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Name"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Price"
+            textField.keyboardType = .numbersAndPunctuation
+        }
+        let action = UIAlertAction(title: "Save", style: .default) { (_) in
+            let name = alert.textFields!.first!.text!
+            let price = alert.textFields!.last!.text!
+            let entry = IncomeExpense(context: PersistenceService.context)
+            entry.name = name
+            entry.price = Float(price)!
+            PersistenceService.saveContext()
+            self.myData.append(entry)
+            self.reloadAll()
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -72,13 +94,15 @@ extension OverviewViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newEntry.count
+        let IncExpPopUpVC: IncExpPopUpViewController = IncExpPopUpViewController(nibName: "IncExpPopUpViewController", bundle: nil)
+        return myData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewEntryTableViewCell
-        let newEntries = self.newEntry[indexPath.row]
+        let IncExpPopUpVC: IncExpPopUpViewController = IncExpPopUpViewController(nibName: "IncExpPopUpViewController", bundle: nil)
+        let newEntries = myData[indexPath.row]
         cell.nameLabel!.text = newEntries.name
         cell.priceLabel!.text = ("€ \(String(format: "%.2f", newEntries.price))")
         if newEntries.price < 0.0 {
@@ -109,8 +133,8 @@ extension OverviewViewController: UITableViewDataSource {
     }
     
     func reloadAll(){
-        
-        let totalAmount = String(format: "%.2f",newEntry.map{$0.price}.reduce(0.0, {x, y in y + x}))
+        let IncExpPopUpVC: IncExpPopUpViewController = IncExpPopUpViewController(nibName: "IncExpPopUpViewController", bundle: nil)
+        let totalAmount = String(format: "%.2f",myData.map{$0.price}.reduce(0.0, {x, y in y + x}))
         if let totalAmount = totalAmountLabel
         {
             totalAmountLabel.text = "Error because of nil"

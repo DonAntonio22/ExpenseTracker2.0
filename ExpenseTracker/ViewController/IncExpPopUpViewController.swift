@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class IncExpPopUpViewController: OverviewViewController, BEMCheckBoxDelegate {
+class IncExpPopUpViewController: UIViewController, BEMCheckBoxDelegate {
     var entryName = ""
     var entryPrice = ""
     @IBOutlet weak var incomeCheckBox: BEMCheckBox!
@@ -30,11 +31,10 @@ class IncExpPopUpViewController: OverviewViewController, BEMCheckBoxDelegate {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
-
+    var myData = [IncomeExpense]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+   
             expenseCheckBox.delegate = self
         
         
@@ -76,24 +76,25 @@ class IncExpPopUpViewController: OverviewViewController, BEMCheckBoxDelegate {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let incomeVC: IncomeViewController = IncomeViewController(nibName: nil, bundle: nil)
+        
+        /*let incomeVC: IncomeViewController = IncomeViewController(nibName: nil, bundle: nil)
         let expenseVC: ExpenseViewController = ExpenseViewController (nibName: nil, bundle: nil)
         let overviewVC: OverviewViewController = OverviewViewController(nibName: nil, bundle: nil)
-        
+        let name = nameTextField.text!
+        let price = priceTextField.text!
+        let entry = IncomeExpense(context: PersistenceService.context)
+        entry.name = name
+        entry.price = Float(price)!
+        PersistenceService.saveContext()
+        overviewVC.myData.append(entry)
+        NotificationCenter.default.post(name: .newIncomeExpense, object: self)
+        dismiss(animated: true, completion: nil)*/
         NotificationCenter.default.post(name: .newIncomeExpense, object: self)
         
         dismiss(animated: true)
         
-        if (nameTextField.text!.isEmpty || priceTextField.text!.isEmpty) {
-            let alert = UIAlertController(title: "You have to fill out the name and price", message: "Error", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
-        if(priceTextField.text?.count == nil){
-            let alert = UIAlertController(title: "NameTextField = nil", message: "NameTextField = nil", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
+        
+        
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
