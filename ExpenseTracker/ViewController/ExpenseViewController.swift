@@ -25,7 +25,6 @@ class ExpenseViewController: UIViewController, UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
         let fetchRequest: NSFetchRequest<IncomeExpense> = IncomeExpense.fetchRequest()
         do {
             let entries = try PersistenceService.context.fetch(fetchRequest)
@@ -33,8 +32,19 @@ class ExpenseViewController: UIViewController, UITableViewDelegate{
             self.reloadAll()
             
         } catch {}
-        
-        
+        tableView.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
+        NotificationCenter.default.addObserver(forName: .newIncomeExpense, object: nil, queue: OperationQueue.main) { (notification) in
+            let IncExpVC = notification.object as! IncExpPopUpViewController
+            let name: String = IncExpVC.nameTextField.text!
+            let price = IncExpVC.priceTextField.text!
+            let entry = IncomeExpense(context: PersistenceService.context)
+            entry.name = name
+            entry.price = Float(price)! * -1
+            if IncExpVC.expenseCheckBox.on == true && entry.price < 0.0{
+                self.myData.append(entry)
+                self.reloadAll()
+            }
+        }
     }
  
     
@@ -56,7 +66,7 @@ extension ExpenseViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ExpenseTableViewCell
         
         let newEntries = self.myData[indexPath.row]
-        if newEntries.price < 0{
+        if newEntries.price < 0.0{
             cell.nameLabel!.text = newEntries.name
             cell.priceLabel!.text = ("€ \(String(format: "%.2f", newEntries.price))")
             cell.nameLabel.textColor = UIColor.red
@@ -74,7 +84,6 @@ extension ExpenseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let rowHeight: CGFloat = 63.0
-        tableView.reloadData()
         return rowHeight
     }
     

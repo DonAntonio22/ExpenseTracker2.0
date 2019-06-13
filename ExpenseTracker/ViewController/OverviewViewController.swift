@@ -44,7 +44,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate {
                 let price = IncExpViewController.priceTextField.text!
                 let entry = IncomeExpense(context: PersistenceService.context)
                 entry.name = name
-                entry.price = Float(price)!
+                entry.price = Float(price)! * 1
                 if IncExpViewController.expenseCheckBox.on == true || IncExpViewController.incomeCheckBox.on == true {
                     if IncExpViewController.expenseCheckBox.on == true{
                         entry.price = Float(price)! * -1

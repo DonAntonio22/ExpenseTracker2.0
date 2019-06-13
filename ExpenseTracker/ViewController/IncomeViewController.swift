@@ -27,13 +27,26 @@ class IncomeViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
         let fetchRequest: NSFetchRequest<IncomeExpense> = IncomeExpense.fetchRequest()
         do {
             let entries = try PersistenceService.context.fetch(fetchRequest)
-                self.myData = entries
-                self.reloadAll()
+            self.myData = entries
+            self.reloadAll()
+            
         } catch {}
+        tableView.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
+        NotificationCenter.default.addObserver(forName: .newIncomeExpense, object: nil, queue: OperationQueue.main) { (notification) in
+            let IncExpVC = notification.object as! IncExpPopUpViewController
+            let name: String = IncExpVC.nameTextField.text!
+            let price = IncExpVC.priceTextField.text!
+            let entry = IncomeExpense(context: PersistenceService.context)
+            entry.name = name
+            entry.price = Float(price)! * 1
+            if IncExpVC.incomeCheckBox.on == true && entry.price > 0.0{
+                self.myData.append(entry)
+                self.reloadAll()
+            }
+        }
     
     }
 }
@@ -72,7 +85,6 @@ extension IncomeViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let rowHeight: CGFloat = 63.0
-        tableView.reloadData()
         return rowHeight
     }
 
