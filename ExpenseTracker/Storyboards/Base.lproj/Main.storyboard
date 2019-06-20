@@ -14,6 +14,7 @@
         <scene sceneID="Re9-Lf-Yu6">
             <objects>
                 <tabBarController id="WvE-j2-Lf0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BX6-tO-ucA"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c3w-tw-VVe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -32,7 +33,7 @@
         <!--Overview-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OverviewViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="overviewVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="OverviewViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,7 +286,7 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KVp-ck-5Ca">
                                         <rect key="frame" x="138" y="130" width="51" height="31"/>
                                         <connections>
-                                            <action selector="darkModeSwitchOn:" destination="zH4-9a-pqG" eventType="valueChanged" id="Dax-eZ-Iyb"/>
+                                            <action selector="toggleDarkModeSwitch:" destination="zH4-9a-pqG" eventType="valueChanged" id="vbe-vR-RWN"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-he-McP">
@@ -314,6 +315,11 @@
                                         <color key="textColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbK-hS-c0p">
+                                        <rect key="frame" x="74" y="226" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -342,7 +348,7 @@
                         <outlet property="backButton" destination="NH4-OE-lm9" id="gNZ-0u-Db4"/>
                         <outlet property="backButtonLabel" destination="Cai-6b-c6C" id="97C-X1-0aq"/>
                         <outlet property="darkModeLabel" destination="bwB-he-McP" id="t58-gM-wkP"/>
-                        <outlet property="darkModeSwitch" destination="KVp-ck-5Ca" id="kfn-Ls-bKd"/>
+                        <outlet property="darkModeSwitch" destination="KVp-ck-5Ca" id="fl6-ub-jrC"/>
                         <outlet property="optionsBackgroundView" destination="OGq-fd-N1R" id="LZe-MG-jcO"/>
                     </connections>
                 </viewController>
@@ -635,6 +641,7 @@
                         <viewLayoutGuide key="safeArea" id="dRZ-yb-aa9"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="bnd-Gy-LoU" id="dfw-TW-HOx"/>
                         <outlet property="cancelButton" destination="mNm-Ce-6wv" id="CIX-vd-6r6"/>
                         <outlet property="expenseCheckBox" destination="EjL-iy-po1" id="alv-KZ-c2J"/>
                         <outlet property="expenseLabel" destination="zo7-rp-7oi" id="Ox9-5V-iEz"/>
@@ -662,6 +669,6 @@
         <image name="plus-button" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xOh-OE-dbw"/>
+        <segue reference="FSd-Yu-zqK"/>
     </inferredMetricsTieBreakers>
 </document>

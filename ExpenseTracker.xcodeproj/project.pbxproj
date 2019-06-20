@@ -17,14 +17,8 @@
 		9717327222649039006EF23D /* IncomeExpense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717327022649039006EF23D /* IncomeExpense+CoreDataClass.swift */; };
 		9717327322649039006EF23D /* IncomeExpense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9717327122649039006EF23D /* IncomeExpense+CoreDataProperties.swift */; };
 		978FF45922A2F6D900F8F333 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 978FF45822A2F6D900F8F333 /* Colors.xcassets */; };
-		978FF46922A301A800F8F333 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF46822A301A800F8F333 /* AppTabBarController.swift */; };
-		978FF46B22A301C100F8F333 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF46A22A301C100F8F333 /* AppNavigationController.swift */; };
-		978FF46D22A301D600F8F333 /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF46C22A301D600F8F333 /* Theming.swift */; };
-		978FF46F22A301EC00F8F333 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF46E22A301EC00F8F333 /* AppTheme.swift */; };
-		978FF47122A3020200F8F333 /* AppThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF47022A3020200F8F333 /* AppThemeProvider.swift */; };
-		978FF47322A3021700F8F333 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF47222A3021700F8F333 /* ArrayExtensions.swift */; };
-		978FF47522A3022E00F8F333 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF47422A3022E00F8F333 /* Weak.swift */; };
-		978FF47722A3024A00F8F333 /* SubsribableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978FF47622A3024A00F8F333 /* SubsribableValue.swift */; };
+		97BCD6FE22B81AC30065B640 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BCD6FD22B81AC30065B640 /* LocalAuthentication.framework */; };
+		97BCD70022B81FF40065B640 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BCD6FF22B81FF40065B640 /* UnlockViewController.swift */; };
 		97E0EA132265D1BD00756F0C /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA0C2265D1BC00756F0C /* BEMAnimationManager.m */; };
 		97E0EA142265D1BD00756F0C /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA0D2265D1BC00756F0C /* BEMPathManager.m */; };
 		97E0EA152265D1BD00756F0C /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0EA0E2265D1BC00756F0C /* BEMCheckBoxGroup.m */; };
@@ -50,14 +44,8 @@
 		9717327022649039006EF23D /* IncomeExpense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeExpense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9717327122649039006EF23D /* IncomeExpense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeExpense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		978FF45822A2F6D900F8F333 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		978FF46822A301A800F8F333 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
-		978FF46A22A301C100F8F333 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
-		978FF46C22A301D600F8F333 /* Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
-		978FF46E22A301EC00F8F333 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		978FF47022A3020200F8F333 /* AppThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeProvider.swift; sourceTree = "<group>"; };
-		978FF47222A3021700F8F333 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		978FF47422A3022E00F8F333 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
-		978FF47622A3024A00F8F333 /* SubsribableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsribableValue.swift; sourceTree = "<group>"; };
+		97BCD6FD22B81AC30065B640 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		97BCD6FF22B81FF40065B640 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
 		97E0EA0B2265D1BC00756F0C /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
 		97E0EA0C2265D1BC00756F0C /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
 		97E0EA0D2265D1BC00756F0C /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
@@ -80,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BCD6FE22B81AC30065B640 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +81,7 @@
 				97E0EA172265D1FB00756F0C /* CheckMarkHeader.h */,
 				97173258226485D7006EF23D /* ExpenseTracker */,
 				97173257226485D7006EF23D /* Products */,
+				97BCD6FC22B81AC30065B640 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,7 +96,6 @@
 		97173258226485D7006EF23D /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
-				978FF45B22A2FD4200F8F333 /* Dark Theme */,
 				97E0EA212265EFD200756F0C /* ViewController */,
 				97E0EA202265EFBA00756F0C /* CoreDataStuff */,
 				97E0EA1F2265EFA400756F0C /* Storyboards */,
@@ -121,19 +110,12 @@
 			path = ExpenseTracker;
 			sourceTree = "<group>";
 		};
-		978FF45B22A2FD4200F8F333 /* Dark Theme */ = {
+		97BCD6FC22B81AC30065B640 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				978FF46822A301A800F8F333 /* AppTabBarController.swift */,
-				978FF46A22A301C100F8F333 /* AppNavigationController.swift */,
-				978FF46C22A301D600F8F333 /* Theming.swift */,
-				978FF46E22A301EC00F8F333 /* AppTheme.swift */,
-				978FF47022A3020200F8F333 /* AppThemeProvider.swift */,
-				978FF47222A3021700F8F333 /* ArrayExtensions.swift */,
-				978FF47422A3022E00F8F333 /* Weak.swift */,
-				978FF47622A3024A00F8F333 /* SubsribableValue.swift */,
+				97BCD6FD22B81AC30065B640 /* LocalAuthentication.framework */,
 			);
-			path = "Dark Theme";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		97E0EA0A2265D1BC00756F0C /* Classes */ = {
@@ -179,6 +161,7 @@
 				97F684B122A00F6F00F5FC17 /* IncomeViewController.swift */,
 				97E0EA1A2265E4FF00756F0C /* IncExpPopUpViewController.swift */,
 				97F83DEF22A2DC17006E9746 /* OptionsViewController.swift */,
+				97BCD6FF22B81FF40065B640 /* UnlockViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,17 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BCD70022B81FF40065B640 /* UnlockViewController.swift in Sources */,
 				9717325C226485D7006EF23D /* OverviewViewController.swift in Sources */,
 				9717327322649039006EF23D /* IncomeExpense+CoreDataProperties.swift in Sources */,
-				978FF46F22A301EC00F8F333 /* AppTheme.swift in Sources */,
 				9717326F22648B16006EF23D /* PersistenceService.swift in Sources */,
-				978FF47122A3020200F8F333 /* AppThemeProvider.swift in Sources */,
-				978FF47522A3022E00F8F333 /* Weak.swift in Sources */,
 				97E0EA232265F2DB00756F0C /* NotificationNameExtension.swift in Sources */,
-				978FF46B22A301C100F8F333 /* AppNavigationController.swift in Sources */,
-				978FF47722A3024A00F8F333 /* SubsribableValue.swift in Sources */,
 				97E0EA1B2265E4FF00756F0C /* IncExpPopUpViewController.swift in Sources */,
-				978FF46922A301A800F8F333 /* AppTabBarController.swift in Sources */,
 				97F684B222A00F6F00F5FC17 /* IncomeViewController.swift in Sources */,
 				97E0EA132265D1BD00756F0C /* BEMAnimationManager.m in Sources */,
 				97F684B422A00FB500F5FC17 /* ExpenseViewController.swift in Sources */,
@@ -274,8 +252,6 @@
 				97F83DF022A2DC17006E9746 /* OptionsViewController.swift in Sources */,
 				9717327222649039006EF23D /* IncomeExpense+CoreDataClass.swift in Sources */,
 				97E0EA152265D1BD00756F0C /* BEMCheckBoxGroup.m in Sources */,
-				978FF47322A3021700F8F333 /* ArrayExtensions.swift in Sources */,
-				978FF46D22A301D600F8F333 /* Theming.swift in Sources */,
 				9717325A226485D7006EF23D /* AppDelegate.swift in Sources */,
 				97E0EA142265D1BD00756F0C /* BEMPathManager.m in Sources */,
 				97E0EA162265D1BD00756F0C /* BEMCheckBox.m in Sources */,

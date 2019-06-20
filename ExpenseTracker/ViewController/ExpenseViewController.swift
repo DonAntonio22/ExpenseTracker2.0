@@ -16,7 +16,9 @@ class ExpenseTableViewCell: UITableViewCell{
     
 }
 
-class ExpenseViewController: UIViewController, UITableViewDelegate{
+
+
+class ExpenseViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
     var myData = [IncomeExpense]()
@@ -102,3 +104,5 @@ extension UITableView {
         
     }
 }
+
+

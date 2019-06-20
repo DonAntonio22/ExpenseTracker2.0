@@ -8,33 +8,78 @@
 
 import UIKit
 import CoreData
-
-
+import Foundation
+import LocalAuthentication
 
 class NewEntryTableViewCell: UITableViewCell{
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cellBackgroundView: UIView!
+    
 }
 
-class OverviewViewController: UIViewController, UITableViewDelegate {
 
-    var myData = [IncomeExpense]()
+
+class OverviewViewController: UIViewController {
+
     private let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var plusButton: UIBarButtonItem!
-    
+    var myData = [IncomeExpense]()
     
     
     @IBOutlet weak var totalAmountLabel: UILabel!
-    
-    
+    //TouchID, FaceID Stuff Start
+    var context = LAContext()
+    enum AuthenticationState {
+        case loggedIn, loggedOut
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
+        context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+        var state = AuthenticationState.loggedOut
+        if state == AuthenticationState.loggedOut {
+            tableView.isHidden = true
+            totalAmountLabel.isHidden = true
+            context = LAContext()
+            context.localizedCancelTitle = "Enter Username/Password"
+            var error: NSError?
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                
+                let reason = "Log in to your account"
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
+                    
+                    if success {
+                       
+                        // Move to the main thread because a state update triggers UI changes.
+                        DispatchQueue.main.async { [unowned self] in
+                            state = .loggedIn
+                            self.tableView.isHidden = false
+                            self.totalAmountLabel.isHidden = false
+                        }
+                        
+                    } else {
+                        print(error?.localizedDescription ?? "Failed to authenticate")
+                        
+                        // Fall back to a asking for username and password.
+                        // ...
+                    }
+                }
+            } else {
+                print(error?.localizedDescription ?? "Can't evaluate policy")
+                
+                // Fall back to a asking for username and password.
+                // ...
+            }
+        }
+        
+        
+
+        tableView?.separatorStyle = .none    //Entfernt Trennstrich zwischen Einträgen in Tabelle
         let fetchRequest: NSFetchRequest<IncomeExpense> = IncomeExpense.fetchRequest()
         do {
+            
             let entries = try PersistenceService.context.fetch(fetchRequest)
             self.myData = entries
             self.reloadAll()
@@ -58,7 +103,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate {
     }
 
     
-    
+
     
     @IBAction func plusButtonpressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add Entry", message: nil, preferredStyle: .alert)
@@ -94,14 +139,12 @@ extension OverviewViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let IncExpPopUpVC: IncExpPopUpViewController = IncExpPopUpViewController(nibName: "IncExpPopUpViewController", bundle: nil)
         return myData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewEntryTableViewCell
-        let IncExpPopUpVC: IncExpPopUpViewController = IncExpPopUpViewController(nibName: "IncExpPopUpViewController", bundle: nil)
         let newEntries = myData[indexPath.row]
         cell.nameLabel!.text = newEntries.name
         cell.priceLabel!.text = ("€ \(String(format: "%.2f", newEntries.price))")
@@ -133,7 +176,6 @@ extension OverviewViewController: UITableViewDataSource {
     }
     
     func reloadAll(){
-        let IncExpPopUpVC: IncExpPopUpViewController = IncExpPopUpViewController(nibName: "IncExpPopUpViewController", bundle: nil)
         let totalAmount = String(format: "%.2f",myData.map{$0.price}.reduce(0.0, {x, y in y + x}))
         if let totalAmount = totalAmountLabel
         {
@@ -147,10 +189,6 @@ extension OverviewViewController: UITableViewDataSource {
 }
 
 
-extension OverviewViewController: Themed {
-    func applyTheme(_ theme: AppTheme) {
-        /*view.backgroundColor = theme.backgroundColor
-        .textColor = theme.textColor
-        subtitleLabel.textColor = theme.textColor*/
-    }
-}
+
+
+

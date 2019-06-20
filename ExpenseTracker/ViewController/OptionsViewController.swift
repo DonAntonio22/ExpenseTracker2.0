@@ -17,24 +17,22 @@ class OptionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        UITabBar.appearance().barTintColor = UIColor.black
     }
     
 
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        //backButton.contentEdgeInsets = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 70)
     }
     
-    @IBAction func darkModeSwitchOn(_ sender: Any) {
-        if darkModeSwitch.isOn == true {
-            darkModeLabel.textColor = UIColor.white
-            optionsBackgroundView.backgroundColor = UIColor.darkGray
-        } else {
-            darkModeLabel.textColor = UIColor.black
-            optionsBackgroundView.backgroundColor = UIColor.white
+    @IBAction func toggleDarkModeSwitch(_ sender: UISwitch) {
+        if darkModeSwitch.isOn == true{
+            UITabBar.appearance().tintColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+        }else{
+            UITabBar.appearance().tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         }
-        //ThemeProvider.nextTheme()
     }
+    
+    
 }
+

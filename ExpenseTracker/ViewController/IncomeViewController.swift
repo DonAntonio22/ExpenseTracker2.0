@@ -17,10 +17,9 @@ class IncomeTableViewCell: UITableViewCell {
     
 }
 
-class IncomeViewController: UIViewController, UITableViewDelegate {
-    
-    var cellValue = 0
-    private let refreshControl = UIRefreshControl()
+
+
+class IncomeViewController: UIViewController{
     var myData = [IncomeExpense]()
     @IBOutlet weak var tableView: UITableView!
     

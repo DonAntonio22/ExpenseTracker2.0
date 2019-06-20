@@ -12,6 +12,8 @@ import CoreData
 class IncExpPopUpViewController: UIViewController, BEMCheckBoxDelegate {
     var entryName = ""
     var entryPrice = ""
+    @IBOutlet weak var backgroundView: UIView!
+    
     @IBOutlet weak var incomeCheckBox: BEMCheckBox!
     @IBOutlet weak var incomeLabel: UILabel!
     
@@ -76,19 +78,6 @@ class IncExpPopUpViewController: UIViewController, BEMCheckBoxDelegate {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
-        /*let incomeVC: IncomeViewController = IncomeViewController(nibName: nil, bundle: nil)
-        let expenseVC: ExpenseViewController = ExpenseViewController (nibName: nil, bundle: nil)
-        let overviewVC: OverviewViewController = OverviewViewController(nibName: nil, bundle: nil)
-        let name = nameTextField.text!
-        let price = priceTextField.text!
-        let entry = IncomeExpense(context: PersistenceService.context)
-        entry.name = name
-        entry.price = Float(price)!
-        PersistenceService.saveContext()
-        overviewVC.myData.append(entry)
-        NotificationCenter.default.post(name: .newIncomeExpense, object: self)
-        dismiss(animated: true, completion: nil)*/
         NotificationCenter.default.post(name: .newIncomeExpense, object: self)
         
         dismiss(animated: true)
@@ -121,3 +110,20 @@ extension IncExpPopUpViewController: UITextFieldDelegate {
         return true
     }
 }
+
+/*extension IncExpPopUpViewController: Themed{
+    func applyTheme(_ theme: AppTheme) {
+        view.backgroundColor = theme.backgroundColor
+        incomeCheckBox.backgroundColor = theme.backgroundColor
+        incomeLabel.textColor = theme.textColor
+        expenseCheckBox.backgroundColor = theme.backgroundColor
+        expenseLabel.textColor = theme.backgroundColor
+        nameLabel.textColor = theme.textColor
+        nameTextField.textColor = theme.textColor
+        nameTextField.backgroundColor = theme.backgroundColor
+        priceLabel.textColor = theme.textColor
+        priceTextField.backgroundColor = theme.backgroundColor
+        priceTextField.textColor = theme.textColor
+        backgroundView.backgroundColor = theme.backgroundColor
+    }
+}*/
